@@ -1,0 +1,55 @@
+ <Flex  >
+      <Flex  display={['none','none','flex','flex']}>
+        <Flex >
+          <Flex w="50%" >
+            Hola valdimir 
+          </Flex>
+          <Flex h='100%' w='100%' align='flex-end' justify="flex-end">
+          <Flex  flexDir="column">
+               <h1 className='Title' as="h1" mb={4}>Yummy test</h1>
+              <Box w="100%" zIndex="docked" boxShadow="dark-lg"   p="6" rounded="md" bg="white" >
+                  <Box  zIndex="docked" p="2" >
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <FormControl>
+                    <Stack spacing={3} >
+                       <FormLabel>ID</FormLabel>
+                       <Input type="tel"  {...register("idCode")} type="text" />
+                       <FormLabel>Name</FormLabel>
+                       <Input type="tel" {...register("name")} type="text" />
+                       <FormLabel>Phone</FormLabel>
+                       <Input type="tel"  {...register("phone")} type="text" />
+                       <FormLabel>Location</FormLabel>
+                       <InputGroup   flexDir="column" >
+                       <InputLeftElement
+                         pointerEvents="none"
+                         children={<Icon as={BiCurrentLocation} w={6} h={6} color="red.300" />}
+
+                         />
+                        <Input type="tel" type="text" ref={placeInputRef} />
+                        {place && <div style={{ display:"none" }}>
+                        <Input  {...register('location.lat')} value={place.lat} />
+                        <Input  {...register('location.long')} value={place.lng} />   
+                         </div>}
+                        </InputGroup>
+                     </Stack>
+                     <Flex  mt={4} justify='center'>
+                     <Button colorScheme="teal" type="submit" onClick={() =>
+                     toast({
+                       title: "Send data",
+                       description: "We've created your account for you.",
+                       status: "success",
+                       duration: 9000,
+                       isClosable: true,
+                       })}>
+                       Submit
+                       </Button>
+                      </Flex>
+                     </FormControl>
+                     </form>
+                   </Box>
+                 </Box>
+             </Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+    </Flex>
